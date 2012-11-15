@@ -41,7 +41,7 @@ class LivrosController < ApplicationController
   # POST /livros.json
   def create
     @livro = Livro.new(params[:livro])
-
+    
     respond_to do |format|
       if @livro.save
         format.html { redirect_to @livro, notice: 'Livro was successfully created.' }

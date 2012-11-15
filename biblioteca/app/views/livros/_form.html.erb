@@ -13,15 +13,17 @@
 
   <div class="field">
     <%= f.label :categoria %><br />
-    <%= f.text_field :categoria_id %>
+    <%= collection_select(:livro, :categoria_id, Categoria.order(:nome), :id, :nome, {:prompt => true}) %><br />
   </div>
   <div class="field">
-    <%= f.label :editora %><br />
-    <%= f.text_field :editora_id %>
+   <%= f.label :editora %><br />
+   <%= collection_select(:livro, :editora_id, Editora.order(:nome), :id, :nome, {:prompt => true}) %><br/>
   </div>
   <div class="field">
-    <%= f.label :autor %><br />
-    <%= f.text_field :autor_id %>
+    <p>Autores<br/>
+    <% Autor.find(:all).each do |autor| %>
+      <%= check_box_tag 'livro[autores][]',autor.id, @livro.autores.include?(autor)%><%= autor.nome %><br/>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :titulo %><br />

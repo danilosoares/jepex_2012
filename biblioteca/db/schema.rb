@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(:version => 20121115001058) do
   create_table "livros", :force => true do |t|
     t.integer  "categoria_id"
     t.integer  "editora_id"
-    t.integer  "autor_id"
     t.string   "titulo"
     t.integer  "paginas"
     t.integer  "ano"
@@ -48,7 +47,6 @@ ActiveRecord::Schema.define(:version => 20121115001058) do
     t.datetime "updated_at",   :null => false
   end
 
-  add_index "livros", ["autor_id"], :name => "index_livros_on_autor_id"
   add_index "livros", ["categoria_id"], :name => "index_livros_on_categoria_id"
   add_index "livros", ["editora_id"], :name => "index_livros_on_editora_id"
 
