@@ -1,4 +1,13 @@
 Biblioteca::Application.routes.draw do
+
+  resources :livros
+
+  resources :autores
+
+  resources :editoras
+
+  resources :categorias
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

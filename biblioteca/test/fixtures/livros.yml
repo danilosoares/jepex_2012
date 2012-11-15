@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  categoria: 
+  titulo: MyString
+  paginas: 1
+  ano: 1
+  issn: MyString
+
+two:
+  categoria: 
+  titulo: MyString
+  paginas: 1
+  ano: 1
+  issn: MyString
