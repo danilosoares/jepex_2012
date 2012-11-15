@@ -4,6 +4,14 @@
   <b>Nome:</b>
   <%= @autor.nome %>
 </p>
+<p>
+  <b>Livro(s):</b>
+  <ul>
+	  <% @autor.livros.each do |livro| %>
+	  	<li><%= livro.nome %></li>
+	  <% end %>
+  </ul>
+</p>
 
 
 <%= link_to 'Edit', edit_autor_path(@autor) %> |

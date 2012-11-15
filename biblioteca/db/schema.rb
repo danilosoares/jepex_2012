@@ -19,15 +19,15 @@ ActiveRecord::Schema.define(:version => 20121115001058) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "autores_livros", :id => false, :force => true do |t|
+    t.integer "autor_id"
+    t.integer "livro_id"
+  end
+
   create_table "categorias", :force => true do |t|
     t.string   "nome"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "categorias_livros", :id => false, :force => true do |t|
-    t.integer "categoria_id"
-    t.integer "livro_id"
   end
 
   create_table "editoras", :force => true do |t|
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(:version => 20121115001058) do
 
   create_table "livros", :force => true do |t|
     t.integer  "categoria_id"
+    t.integer  "editora_id"
+    t.integer  "autor_id"
     t.string   "titulo"
     t.integer  "paginas"
     t.integer  "ano"
@@ -46,6 +48,8 @@ ActiveRecord::Schema.define(:version => 20121115001058) do
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "livros", ["autor_id"], :name => "index_livros_on_autor_id"
   add_index "livros", ["categoria_id"], :name => "index_livros_on_categoria_id"
+  add_index "livros", ["editora_id"], :name => "index_livros_on_editora_id"
 
 end

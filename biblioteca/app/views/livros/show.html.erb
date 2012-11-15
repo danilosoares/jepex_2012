@@ -2,12 +2,21 @@
 
 <p>
   <b>Categoria:</b>
-  <%= @livro.categoria %>
+  <%= @livro.categoria.nome %>
 </p>
 
 <p>
   <b>Titulo:</b>
   <%= @livro.titulo %>
+</p>
+
+<p>
+  <b>Autor(es):</b>
+  <ul>
+    <% @livro.autores.each do |autor| %>
+      <li><%= autor.nome %></li>
+    <% end %>
+  </ul>  
 </p>
 
 <p>
