@@ -8,6 +8,21 @@ Biblioteca::Application.routes.draw do
 
   resources :categorias
 
+  resources :livros do
+    resources :autores
+  end
+
+  resources :autores do
+    resources :livros
+  end
+
+  resources :categorias do
+    resources :livros
+  end
+
+  resources :editoras do
+    resources :livros
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -57,7 +72,7 @@ Biblioteca::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'livros#index'
 
   # See how all your routes lay out with "rake routes"
 
