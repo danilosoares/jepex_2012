@@ -21,10 +21,13 @@
   </div>
   <div class="field">
     <p>Autores<br/>
-    <% Autor.find(:all).each do |autor| %>
-      <%= check_box_tag 'livro[autores][]',autor.id, @livro.autores.include?(autor)%><%= autor.nome %><br/>
+    <% for autor in Autor.find(:all, :order => "nome") %>
+      <%= check_box_tag "livro[autor_ids][]", autor.id, @livro.autores.include?(autor)%><%= autor.nome %><br/>
+      <br/>
     <% end %>
   </div>
+  
+
   <div class="field">
     <%= f.label :titulo %><br />
     <%= f.text_field :titulo %>

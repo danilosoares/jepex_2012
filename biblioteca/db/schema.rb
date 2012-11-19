@@ -13,15 +13,17 @@
 
 ActiveRecord::Schema.define(:version => 201211150010582) do
 
-  create_table "autores", :force => true do |t|
-    t.string   "nome"
+  create_table "autor_livros", :force => true do |t|
+    t.integer  "autor_id"
+    t.integer  "livro_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "autores_livros", :id => false, :force => true do |t|
-    t.integer "autor_id"
-    t.integer "livro_id"
+  create_table "autores", :force => true do |t|
+    t.string   "nome"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "categorias", :force => true do |t|

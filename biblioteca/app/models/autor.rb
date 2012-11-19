@@ -1,7 +1,10 @@
 class Autor < ActiveRecord::Base
-  has_and_belongs_to_many :livros, :join_table => 'autores_livros'
+  
+  has_many :autor_livros
+  has_many :livros, :through => :autor_livros
+  
 
-  attr_accessible :nome
+  attr_accessible :nome, :livro_ids
 
   validates_presence_of :nome, :message => " - campo obrigatorio."
 end

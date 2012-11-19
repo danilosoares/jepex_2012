@@ -40,6 +40,7 @@ class LivrosController < ApplicationController
   # POST /livros
   # POST /livros.json
   def create
+   
     @livro = Livro.new(params[:livro])
     
     respond_to do |format|
