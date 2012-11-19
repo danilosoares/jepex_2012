@@ -5,6 +5,7 @@
   <%= @autor.nome %>
 </p>
 
-
-<%= link_to 'Edit', edit_autor_path(@autor) %> |
-<%= link_to 'Back', autores_path %>
+<div class="form-actions">
+<%= link_to 'Editar', edit_autor_path(@autor), :class => "btn btn-primary" %>
+<%= link_to 'Voltar', autores_path, :class => "btn" %>
+</div>

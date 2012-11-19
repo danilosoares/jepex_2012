@@ -1,4 +1,4 @@
-<%= form_for(@autor) do |f| %>
+<%= form_for(@autor, :html => { :class => "form-horizontal"}) do |f| %>
   <% if @autor.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@autor.errors.count, "error") %> prohibited this autor from being saved:</h2>
@@ -10,12 +10,17 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
+  
+  <div class="control-group">
+    <%= f.label :nome, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :nome, :class => "span8" %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
+  	<div class="form-actions">
+  		<input type="submit" class="btn btn-primary" value="Salvar"/>
+  		<%= link_to 'Voltar', autores_path, :class => "btn" %>
+	</div>
+	
 <% end %>
