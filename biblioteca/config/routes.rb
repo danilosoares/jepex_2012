@@ -23,6 +23,12 @@ Biblioteca::Application.routes.draw do
   resources :editoras do
     resources :livros
   end
+
+  match 'busca' => 'busca#busca'
+  match 'buscalivro' => 'busca#busca_livro'
+  match 'buscaeditora' => 'busca#busca_editora'
+  match 'buscaautor' => 'busca#busca_autor'
+  match 'buscacategoria' => 'busca#busca_categoria'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

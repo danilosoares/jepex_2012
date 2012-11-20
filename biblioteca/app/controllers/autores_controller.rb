@@ -1,4 +1,5 @@
 class AutoresController < ApplicationController
+
   # GET /autores
   # GET /autores.json
   def index
@@ -25,7 +26,7 @@ class AutoresController < ApplicationController
   # GET /autores/new.json
   def new
     @autor = Autor.new
-
+ 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @autor }
@@ -35,6 +36,7 @@ class AutoresController < ApplicationController
   # GET /autores/1/edit
   def edit
     @autor = Autor.find(params[:id])
+
   end
 
   # POST /autores
