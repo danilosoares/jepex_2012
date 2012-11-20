@@ -1,4 +1,4 @@
-<%= form_for(@livro) do |f| %>
+<%= form_for(@livro, :html => { :class => "form-horizontal"}) do |f| %>
   <% if @livro.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@livro.errors.count, "error") %> prohibited this livro from being saved:</h2>
@@ -10,41 +10,68 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="control-group">
+    <%= f.label :categoria, :id => "livro_categoria_id", :class => "control-label" %>
+    <div class="controls">
+    	<%= collection_select(:livro, :categoria_id, Categoria.order(:nome), :id, :nome, {:prompt => true}) %>
+  	</div>
+  </div>
+      
+  <div class="control-group">
+   <%= f.label :editora, :id => "livro_editora_id", :class => "control-label" %>
+   <div class="controls">
+   <%= collection_select(:livro, :editora_id, Editora.order(:nome), :id, :nome, {:prompt => true}) %>
+   </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :categoria %><br />
-    <%= collection_select(:livro, :categoria_id, Categoria.order(:nome), :id, :nome, {:prompt => true}) %><br />
-  </div>
-  <div class="field">
-   <%= f.label :editora %><br />
-   <%= collection_select(:livro, :editora_id, Editora.order(:nome), :id, :nome, {:prompt => true}) %><br/>
-  </div>
-  <div class="field">
-    <p>Autores<br/>
-    <% for autor in Autor.find(:all, :order => "nome") %>
-      <%= check_box_tag "livro[autor_ids][]", autor.id, @livro.autores.include?(autor)%><%= autor.nome %><br/>
-      <br/>
-    <% end %>
+  <div class="control-group">
+    <%= f.label :titulo, :class => "control-label" %>
+    <div class="controls">
+    <%= f.text_field :titulo, :class => "span8" %>
+  	</div>
   </div>
   
+  <div class="control-group">
+    <%= f.label :paginas, :class => "control-label" %>
+    <div class="controls">
+    <%= f.text_field :paginas, :class => "span3" %>
+  	</div>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label :ano, :class => "control-label" %>
+    <div class="controls">
+    <%= f.text_field :ano, :class => "span3" %>
+  	</div>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label :issn, :class => "control-label" %>
+    <div class="controls">
+    <%= f.text_field :issn, :class => "span3" %>
+  	</div>
+  </div>
+  
+  <div class="well">
+  	<h4 class="muted">Autor(es)</h4>
+	<hr />
 
-  <div class="field">
-    <%= f.label :titulo %><br />
-    <%= f.text_field :titulo %>
+    
+    <% for autor in Autor.find(:all, :order => "nome") %>
+    <div class="control-group">
+    	<div class="controls">
+              <label class="checkbox">
+      			<%= check_box_tag "livro[autor_ids][]", autor.id, @livro.autores.include?(autor)%><%= autor.nome %>
+      		  </label>
+      	</div>
+    </div>
+    <% end %>
+    
   </div>
-  <div class="field">
-    <%= f.label :paginas %><br />
-    <%= f.number_field :paginas %>
-  </div>
-  <div class="field">
-    <%= f.label :ano %><br />
-    <%= f.number_field :ano %>
-  </div>
-  <div class="field">
-    <%= f.label :issn %><br />
-    <%= f.text_field :issn %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
+  <div class="form-actions">
+  		<input type="submit" class="btn btn-primary" value="Salvar"/>
+  		<%= link_to 'Voltar', autores_path, :class => "btn" %>
+	</div>
 <% end %>

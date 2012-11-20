@@ -1,12 +1,12 @@
-<h1>Listing livros</h1>
-
-<table>
+<h3 class="muted">Lista de livros</h3>
+<hr />
+<table class="table table-striped table-bordered">
   <tr>
     <th>Categoria</th>
-    <th>Titulo</th>
-    <th>Paginas</th>
+    <th>Título</th>
+    <th>Nº Páginas</th>
     <th>Ano</th>
-    <th>Issn</th>
+    <th>ISSN</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,18 +14,17 @@
 
 <% @livros.each do |livro| %>
   <tr>
-    <td><%= livro.categoria %></td>
+    <td><%= livro.categoria.nome %></td>
     <td><%= livro.titulo %></td>
     <td><%= livro.paginas %></td>
     <td><%= livro.ano %></td>
     <td><%= livro.issn %></td>
-    <td><%= link_to 'Show', livro %></td>
-    <td><%= link_to 'Edit', edit_livro_path(livro) %></td>
-    <td><%= link_to 'Destroy', livro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Exibir', livro %></td>
+    <td><%= link_to 'Editar', edit_livro_path(livro) %></td>
+    <td><%= link_to 'Deletar', livro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
 
-<%= link_to 'New Livro', new_livro_path %>
+<%= link_to 'Novo livro', new_livro_path, :class => "btn btn-primary" %>
