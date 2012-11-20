@@ -9,7 +9,7 @@ class BuscaController < ApplicationController
 	end
 
 	def busca_autor
-		@autores = Livro.find(:all, :conditions => ["nome like ?","%#{params[:search]}%"], :order => "nome")
+		@autores = Autor.find(:all, :conditions => ["nome like ?","%#{params[:search]}%"], :order => "nome")
 		
 		render :action => 'autores/index'
 	end
