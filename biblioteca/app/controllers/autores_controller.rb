@@ -4,6 +4,7 @@ class AutoresController < ApplicationController
   # GET /autores.json
   def index
     @autores = Autor.all
+    @model = "autor"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +16,7 @@ class AutoresController < ApplicationController
   # GET /autores/1.json
   def show
     @autor = Autor.find(params[:id])
+    @model = "autor"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -43,6 +45,7 @@ class AutoresController < ApplicationController
   # POST /autores.json
   def create
     @autor = Autor.new(params[:autor])
+    @model = "autor"
 
     respond_to do |format|
       if @autor.save
@@ -76,6 +79,7 @@ class AutoresController < ApplicationController
   def destroy
     @autor = Autor.find(params[:id])
     @autor.destroy
+    @model = "autores"
 
     respond_to do |format|
       format.html { redirect_to autores_url }

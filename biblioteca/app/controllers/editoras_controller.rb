@@ -3,6 +3,7 @@ class EditorasController < ApplicationController
   # GET /editoras.json
   def index
     @editoras = Editora.all
+    @model = "editora"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,7 @@ class EditorasController < ApplicationController
   # GET /editoras/1.json
   def show
     @editora = Editora.find(params[:id])
+    @model = "editora"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -41,6 +43,7 @@ class EditorasController < ApplicationController
   # POST /editoras.json
   def create
     @editora = Editora.new(params[:editora])
+    @model = "editora"
 
     respond_to do |format|
       if @editora.save
@@ -57,6 +60,7 @@ class EditorasController < ApplicationController
   # PUT /editoras/1.json
   def update
     @editora = Editora.find(params[:id])
+    @model = "editora"
 
     respond_to do |format|
       if @editora.update_attributes(params[:editora])

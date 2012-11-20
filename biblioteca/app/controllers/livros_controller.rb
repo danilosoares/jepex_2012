@@ -3,6 +3,7 @@ class LivrosController < ApplicationController
   # GET /livros.json
   def index
     @livros = Livro.all
+    @model = "livro"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,7 @@ class LivrosController < ApplicationController
   # GET /livros/1.json
   def show
     @livro = Livro.find(params[:id])
+    @model = "livro"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -42,6 +44,7 @@ class LivrosController < ApplicationController
   def create
    
     @livro = Livro.new(params[:livro])
+    @model = "livro"
     
     respond_to do |format|
       if @livro.save
@@ -60,6 +63,7 @@ class LivrosController < ApplicationController
     
     params[:livro][:autor_ids] ||= []
     @livro = Livro.find(params[:id])
+    @model = "livro"
 
     respond_to do |format|
       if @livro.update_attributes(params[:livro])
