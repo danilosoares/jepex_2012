@@ -57,6 +57,8 @@ class LivrosController < ApplicationController
   # PUT /livros/1
   # PUT /livros/1.json
   def update
+    
+    params[:livro][:autor_ids] ||= []
     @livro = Livro.find(params[:id])
 
     respond_to do |format|
