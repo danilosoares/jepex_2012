@@ -6,5 +6,7 @@
 </p>
 
 
-<%= link_to 'Edit', edit_editora_path(@editora) %> |
-<%= link_to 'Back', editoras_path %>
+<div class="form-actions">
+	<%= link_to 'Edit', edit_editora_path(@editora), :class => "btn btn-primary" %>
+	<%= link_to 'Back', editoras_path, :class => "btn"  %>
+</div>

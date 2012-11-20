@@ -1,23 +1,21 @@
-<h1>Listing categorias</h1>
-
-<table>
+<h3 class="muted">Lista de categorias</h3>
+<hr />
+<table class="table table-striped table-bordered">
   <tr>
     <th>Nome</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th colspan="3">Ações</th>
   </tr>
 
 <% @categorias.each do |categoria| %>
   <tr>
     <td><%= categoria.nome %></td>
-    <td><%= link_to 'Show', categoria %></td>
-    <td><%= link_to 'Edit', edit_categoria_path(categoria) %></td>
-    <td><%= link_to 'Destroy', categoria, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Exibir', categoria %></td>
+    <td><%= link_to 'Editar', edit_categoria_path(categoria) %></td>
+    <td><%= link_to 'Deletar', categoria, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Categoria', new_categoria_path %>
+<%= link_to 'Nova Categoria', new_categoria_path %>

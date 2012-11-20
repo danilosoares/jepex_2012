@@ -7,9 +7,7 @@
     <th>Nº Páginas</th>
     <th>Ano</th>
     <th>ISSN</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th colspan="3">Ações</th>
   </tr>
 
 <% @livros.each do |livro| %>
@@ -28,3 +26,4 @@
 
 
 <%= link_to 'Novo livro', new_livro_path, :class => "btn btn-primary" %>
+

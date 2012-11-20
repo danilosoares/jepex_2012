@@ -1,39 +1,31 @@
 <p id="notice"><%= notice %></p>
+<h3 class="muted"><%= @livro.titulo %></h3>
+<hr />
+<table class="table table-striped table-bordered">
+  <tr>
+    <th>Categoria</th>
+    <th>Autor(es)</th>
+    <th>Nº Páginas</th>
+    <th>Ano</th>
+    <th>ISSN</th>
+  </tr>
 
-<p>
-  <b>Categoria:</b>
-  <%= @livro.categoria.nome %>
-</p>
+  <tr>
+    <td><%= @livro.categoria.nome %></td>
+    <td>
+        <ul>
+            <% @livro.autores.each do |autor| %>
+              <li><%= autor.nome %></li>
+            <% end %>
+        </ul> 
+    </td>
+    <td><%= @livro.paginas %></td>
+    <td><%= @livro.ano %></td>
+    <td><%= @livro.issn %></td>
+  </tr>
+</table>
 
-<p>
-  <b>Titulo:</b>
-  <%= @livro.titulo %>
-</p>
-
-<p>
-  <b>Autor(es):</b>
-  <ul>
-    <% @livro.autores.each do |autor| %>
-      <li><%= autor.nome %></li>
-    <% end %>
-  </ul>  
-</p>
-
-<p>
-  <b>Paginas:</b>
-  <%= @livro.paginas %>
-</p>
-
-<p>
-  <b>Ano:</b>
-  <%= @livro.ano %>
-</p>
-
-<p>
-  <b>Issn:</b>
-  <%= @livro.issn %>
-</p>
-
-
-<%= link_to 'Edit', edit_livro_path(@livro) %> |
-<%= link_to 'Back', livros_path %>
+<div class="form-actions">
+  <%= link_to 'Edit', edit_livro_path(@livro), :class => "btn btn-primary" %>
+  <%= link_to 'Back', livros_path, :class => "btn"  %>
+</div>

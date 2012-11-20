@@ -1,23 +1,21 @@
-<h1>Listing editoras</h1>
-
-<table>
+<h3 class="muted">Lista de editoras</h3>
+<hr />
+<table class="table table-striped table-bordered">
   <tr>
     <th>Nome</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th colspan="3">Ações</th>
   </tr>
 
 <% @editoras.each do |editora| %>
   <tr>
     <td><%= editora.nome %></td>
-    <td><%= link_to 'Show', editora %></td>
-    <td><%= link_to 'Edit', edit_editora_path(editora) %></td>
-    <td><%= link_to 'Destroy', editora, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Exibir', editora %></td>
+    <td><%= link_to 'Editar', edit_editora_path(editora) %></td>
+    <td><%= link_to 'Deletar', editora, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Editora', new_editora_path %>
+<%= link_to 'Nova Editora', new_editora_path %>
