@@ -1,7 +1,7 @@
 class Autor < ActiveRecord::Base
   
   has_many :autor_livros
-  has_many :livros, :through => :autor_livros
+  has_many :livros, :through => :autor_livros, :dependent => :nullify
   
 
   attr_accessible :nome, :livro_ids

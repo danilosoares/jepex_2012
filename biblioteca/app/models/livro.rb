@@ -3,7 +3,7 @@ class Livro < ActiveRecord::Base
   belongs_to :editora
   
   has_many :autor_livros
-  has_many :autores, :through => :autor_livros
+  has_many :autores, :through => :autor_livros, :dependent => :nullify
   
 
   attr_accessible :ano, :issn, :paginas, :titulo, :categoria_id, :editora_id, :autor_ids

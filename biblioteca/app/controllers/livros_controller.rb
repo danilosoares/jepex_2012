@@ -61,7 +61,8 @@ class LivrosController < ApplicationController
   # PUT /livros/1.json
   def update
     
-    params[:livro][:autor_ids] ||= []
+    #concatenando o atributo autor_ids no array livro -> livro['autor_ids'] e depois concateno ao array de autores os valores.
+    #params[:livro][:autor_ids] ||= []
     @livro = Livro.find(params[:id])
     @model = "livro"
 
